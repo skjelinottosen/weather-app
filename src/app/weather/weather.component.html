@@ -1,0 +1,46 @@
+<div
+  class="container d-flex justify-content-center mt-5"
+  *ngIf="vm$ | async as vm; else spinner"
+>
+  <div class="weather-card p-3">
+    <div class="weather-card-item" *ngIf="vm[0] as localName">
+      <p class="weather-card-text float-start">{{ localName }}</p>
+      <p class="weather-card-text float-end">
+        {{ today | date : "dd. MMM. yyyy" }}
+      </p>
+    </div>
+    <div
+      class="d-flex justify-content-center justify-content-md-start flex-wrap mt-5"
+      *ngIf="vm[1] as timeseries"
+    >
+      <div
+        class="weather-card-item mt-2 mb-5"
+        *ngFor="let timeserie of timeseries"
+      >
+        <div class="d-flex flex-column align-items-center">
+          <p class="time">{{ timeserie.time | date : " HH:mm" }}</p>
+          <img
+            [src]="
+              '/assets/icons/svg/' +
+              timeserie.data.next_1_hours?.summary?.symbol_code +
+              '.svg'
+            "
+          />
+          <p class="temperature">
+            {{
+              timeserie.data.instant.details.air_temperature | number : "1.0-0"
+            }}<span>°C</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #spinner
+  ><div class="d-flex justify-content-center mt-5">
+    <div class="spinner-border mt-5" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+</ng-template>
