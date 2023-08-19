@@ -3,11 +3,20 @@ import { LocationService } from './services/location.service';
 import { EMPTY, catchError, combineLatest, map, of, switchMap } from 'rxjs';
 import { WeatherService } from './services/weather-data.service';
 import { ReverseGeocodingService } from './services/reverse-geocoding.service';
+import { NgIf, NgFor, AsyncPipe, DecimalPipe, DatePipe } from '@angular/common';
 
 @Component({
-  selector: 'app-weather',
-  templateUrl: './weather.component.html',
-  styleUrls: ['./weather.component.css'],
+    selector: 'app-weather',
+    templateUrl: './weather.component.html',
+    styleUrls: ['./weather.component.css'],
+    standalone: true,
+    imports: [
+        NgIf,
+        NgFor,
+        AsyncPipe,
+        DecimalPipe,
+        DatePipe,
+    ],
 })
 export class WeatherComponent {
   today = new Date();

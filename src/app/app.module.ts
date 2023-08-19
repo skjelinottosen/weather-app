@@ -7,9 +7,9 @@ import { WeatherComponent } from './weather/weather.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [AppComponent, WeatherComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-  providers: [],
-  bootstrap: [AppComponent],
+    declarations: [AppComponent],
+    imports: [BrowserModule, AppRoutingModule, HttpClientModule, WeatherComponent],
+    providers: [],
+    bootstrap: [AppComponent],
 })
 export class AppModule {}
