@@ -1,4 +1,7 @@
+
 # WeatherApp
+
+![image info](app_screenshot.png)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.4.
 
